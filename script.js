@@ -70,8 +70,22 @@ function main(){
     function endGame(){
         clearInterval(gameIntervalID)
         mole.remove()
-        alert('Game over! \nYour score: ' + points)
-        var gameOver = document.querySelector ('.gameOver')
+                
+        document.querySelector('.end-modal .score')
+            .innerText = points + " punktów!"
+
+        document.querySelector('.end-modal')
+        .style.display = 'block'
+
+        document.querySelector('.end-modal button')
+        .addEventListener(
+            'click',
+            function (){
+                document.querySelector('.end-modal')
+                startGame()
+            }
+
+        )
     }
 
     function init (){
@@ -82,8 +96,8 @@ function main(){
                 document.querySelector('.start-modal')
                 .style.display = 'none'
                 startGame()
-                    }
-                        )
+            }
+        )
                     function startGame(){
                     points = 0
                     time = 3
@@ -95,7 +109,7 @@ function main(){
                             mole.remove()
                             mole = makeMole()
                             reduceTime()
-                                },
+                    },
             1000
         )
     }
