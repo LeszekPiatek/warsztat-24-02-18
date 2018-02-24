@@ -82,6 +82,7 @@ function main(){
             'click',
             function (){
                 document.querySelector('.end-modal')
+                .style.display = none
                 startGame()
             }
 
