@@ -1,11 +1,14 @@
 //deklaracja funkcji, zadeklarowanie
 
-function hello(){
-    console.log("Hello!")
-    console.log("Hello!")
-    console.log("Hello!")
+function hello(name, numberOfLogs){
+    for(var i = numberOfLogs; i > 0; i--) {
+        console.log("Hello " + name + "!")
+    }
 }
 
 //wywołanie funkcji, call, invocation
 
-hello()
+hello("Mateusz", 14)
+hello("Ala", 4)
+
+
