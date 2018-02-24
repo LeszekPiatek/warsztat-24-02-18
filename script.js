@@ -1,14 +1,10 @@
-//deklaracja funkcji, zadeklarowanie
+var body = document.querySelector("body")
 
-function hello(name, numberOfLogs){
-    for(var i = numberOfLogs; i > 0; i--) {
-        console.log("Hello " + name + "!")
+console.log(body)
+
+body.addEventListener (
+    'click',
+    function(){
+        console.log('Klik')
     }
-}
-
-//wywołanie funkcji, call, invocation
-
-hello("Mateusz", 14)
-hello("Ala", 4)
-
-
+)
