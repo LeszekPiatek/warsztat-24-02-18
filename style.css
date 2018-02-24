@@ -75,3 +75,9 @@ body{
 .end-modal{
     display: none;
 }
+
+.end-modal button{
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 10px;

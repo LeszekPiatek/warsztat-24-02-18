@@ -3,6 +3,22 @@ function main(){
     var time
     var mole
     var gameIntervalID
+    
+    function startGame(){
+        points = 0
+        time = 3
+        mole = makeMole()
+        displayPoints(points)
+        displayTime(time)
+        gameIntervalID = setInterval (
+            function(){
+                mole.remove()
+                mole = makeMole()
+                reduceTime()
+        },
+1000
+)
+}
 
     function addPoint(){
         points++
@@ -55,7 +71,7 @@ function main(){
 
         mole.addEventListener(
             'click',
-            function(){
+                function(){
                 mole.remove()
                 addPoint()
                 flashBackground()
@@ -66,7 +82,21 @@ function main(){
 
         return mole
     }
-
+function startGame(){
+                    points = 0
+                    time = 3
+                    mole = makeMole()
+                    displayPoints(points)
+                    displayTime(time)
+                    gameIntervalID = setInterval (
+                        function(){
+                            mole.remove()
+                            mole = makeMole()
+                            reduceTime()
+                    },
+            1000
+        )
+    }
     function endGame(){
         clearInterval(gameIntervalID)
         mole.remove()
@@ -80,9 +110,9 @@ function main(){
         document.querySelector('.end-modal button')
         .addEventListener(
             'click',
-            function (){
+                function (){
                 document.querySelector('.end-modal')
-                .style.display = none
+                .style.display = 'none'
                 startGame()
             }
 
