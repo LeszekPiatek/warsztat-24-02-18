@@ -1,10 +1,23 @@
-var body = document.querySelector("body")
+function main(){
+    function makeMole(){
 
-console.log(body)
+        var molePosX = Math.round(
+            Math.random() * (window.innerWidth - window.innerHeight/10)
+        )
+        var molePosY = Math.round(
+            Math.random() * (window.innerHeight - window.innerHeight/10)
+        )
+        var mole = document.createElement('div')
 
-body.addEventListener (
-    'click',
-    function(){
-        console.log('Klik')
+        mole.classList.add('mole')
+
+        mole.style.left = molePosX + 'px'
+        mole.style.top = molePosY + 'px'
+
+        document.querySelector('body').appendChild(mole)
     }
-)
+    makeMole()
+
+}
+
+main()
