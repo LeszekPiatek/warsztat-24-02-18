@@ -6,6 +6,7 @@ body{
     background-color: green;
     width: 100vw;
     height: 100vh;
+    font-family: sans-serif;
 }
 
 .mole{
@@ -33,11 +34,44 @@ body{
     color: white;
 }
 
-.messages{
+}
+.gameOver{
     position: absolute;
     left: 50%;
-    transform: translate(-50%);
-    top: 0;
+    top: 50%;
+    background-color: white;
     font-size: 3em;
-    color: red;
+    font: black;
+
+}
+.hit{
+    left: 50%;
+    top: 50%;
+    font-size: 15em;
+    font: white;
+}
+.modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    z-index: 99999;
+    max-width: 90vh;
+
+
+
+}
+
+.modal button{
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 10px;
+
+}
+.end-modal{
+    display: none;
 }

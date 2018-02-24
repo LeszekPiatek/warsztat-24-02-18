@@ -2,10 +2,31 @@ function main(){
     var points
     var time
     var mole
+    var gameIntervalID
 
     function addPoint(){
         points++
         displayPoints(points)
+    }
+
+    function reduceTime(){
+        time --
+        displayTime(time)
+        if(time === 0){
+            endGame()
+        }
+    }
+
+    function flashBackground(){
+        var body = document.querySelector ('body')
+        body.style.backgroundColor = 'black'
+        
+        setTimeout (
+            function (){
+                body.style.backgroundColor = 'green'
+            },
+            100
+        )
     }
 
     function displayPoints(pointsParam){
@@ -15,18 +36,6 @@ function main(){
     function displayTime(timeParam){
         var timeContainer = document.querySelector('.time')
         timeContainer.innerText = timeParam
-    }
-
-    function timeInterval(){
-
-    }
-
-    function timeout(){
-
-    }
-
-    function endGameMessage(){
-
     }
 
     function makeMole(){
@@ -49,8 +58,7 @@ function main(){
             function(){
                 mole.remove()
                 addPoint()
-
-
+                flashBackground()
             }
         )
 
@@ -59,13 +67,38 @@ function main(){
         return mole
     }
 
-    function init (){
-        points = 0
-        time = 10
-        mole = makeMole()
+    function endGame(){
+        clearInterval(gameIntervalID)
+        mole.remove()
+        alert('Game over! \nYour score: ' + points)
+        var gameOver = document.querySelector ('.gameOver')
+    }
 
-        displayPoints(points)
-        displayTime(time)
+    function init (){
+        document.querySelector('.start-modal button') //znajdź element w klasie start modal i znajdź w tej klasie button
+        .addEventListener(
+        'click',
+            function(){
+                document.querySelector('.start-modal')
+                .style.display = 'none'
+                startGame()
+                    }
+                        )
+                    function startGame(){
+                    points = 0
+                    time = 3
+                    mole = makeMole()
+                    displayPoints(points)
+                    displayTime(time)
+                    gameIntervalID = setInterval (
+                        function(){
+                            mole.remove()
+                            mole = makeMole()
+                            reduceTime()
+                                },
+            1000
+        )
+    }
     }
     init()
 
